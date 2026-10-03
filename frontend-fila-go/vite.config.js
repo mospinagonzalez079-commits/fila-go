@@ -1,12 +1,13 @@
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), VitePWA({
+  plugins: [react(), tailwindcss(), VitePWA({
     registerType: 'autoUpdate',
-    injectRegister: false,
+    injectRegister: 'auto',
 
     pwaAssets: {
       disabled: false,
@@ -14,10 +15,13 @@ export default defineConfig({
     },
 
     manifest: {
-      name: 'frontend-fila-go',
-      short_name: 'frontend',
-      description: 'una aplicacion para optimizar las filas en el espacio escolar',
-      theme_color: '#ffffff',
+      name: 'Fila Go - Tu recreo sin filas',
+      short_name: 'Fila Go',
+      description: 'Turnos virtuales para la tienda escolar de la Institución Educativa Rural Santa María.',
+      theme_color: '#174f3d',
+      background_color: '#f5f6f1',
+      display: 'standalone',
+      start_url: '/',
     },
 
     workbox: {

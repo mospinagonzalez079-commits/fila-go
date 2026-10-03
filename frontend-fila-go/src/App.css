@@ -1,42 +1,28 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+#root { min-height: 100vh; }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+.app-shell { min-height: 100vh; }
+.side-rail { width: 248px; background: var(--green); color: #f5f7ec; }
+.brand-mark { width: 38px; height: 38px; border-radius: 12px; background: var(--lime); color: var(--green); }
+.nav-item { color: #b8c9c0; transition: background .18s ease, color .18s ease; }
+.nav-item:hover, .nav-item.active { color: #fff; background: rgb(255 255 255 / 10%); }
+.nav-item.active { box-shadow: inset 3px 0 #d5f16b; }
+.page-content { max-width: 1440px; }
+.panel { border: 1px solid var(--line); background: var(--paper); border-radius: 8px; }
+.service-row { transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.service-row:hover { transform: translateY(-2px); border-color: #b9c9a4; box-shadow: 0 10px 24px rgb(28 50 38 / 7%); }
+.service-icon { width: 44px; height: 44px; flex: 0 0 44px; }
+.ticket-number { font-family: 'Space Grotesk', sans-serif; font-size: 52px; line-height: 1; letter-spacing: 0; }
+.progress-track { height: 6px; border-radius: 999px; background: #e8ece5; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: inherit; background: var(--lime); transition: width .35s ease; }
+.fade-in { animation: appear .38s ease both; }
+@keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@media (max-width: 767px) {
+  .side-rail { position: fixed; z-index: 20; inset: auto 0 0; width: 100%; height: 68px; padding: 0 10px; }
+  .side-rail-brand, .side-rail-label, .side-rail-footer { display: none; }
+  .side-rail nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; height: 100%; }
+  .nav-item { justify-content: center; gap: 7px; border-radius: 8px; padding: 8px 4px; font-size: 11px; }
+  .nav-item.active { box-shadow: inset 0 3px #d5f16b; }
+  .mobile-space { padding-bottom: 88px; }
+  .ticket-number { font-size: 46px; }
 }
